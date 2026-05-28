@@ -55,25 +55,32 @@ Fullstack web application built with Django where users can browse games, search
 
 ## Homepage
 
-
+<img width="1920" height="1003" alt="image" src="https://github.com/user-attachments/assets/84770993-6562-407f-9e78-8d75d13831de" />
 
 ---
 
 ## Games Catalog
 
+<img width="1890" height="753" alt="image" src="https://github.com/user-attachments/assets/0754865b-4f2b-410e-8889-8915c5591c88" />
+
+
+<img width="1871" height="938" alt="image" src="https://github.com/user-attachments/assets/e21cb546-ee8c-487d-9384-83f3172d60c6" />
 
 
 ---
 
 ## Game Detail Page
 
+<img width="1885" height="877" alt="image" src="https://github.com/user-attachments/assets/a037be4b-dc45-4af1-98e7-89c78c5bdeaa" />
 
 
 ---
 
 ## Authentication
 
+<img width="1842" height="857" alt="image" src="https://github.com/user-attachments/assets/beeceaa4-d4c5-476d-a40d-fa2d93119872" />
 
+<img width="1868" height="986" alt="image" src="https://github.com/user-attachments/assets/760cf189-8549-45d8-afc9-97b15f56dca7" />
 
 ---
 
