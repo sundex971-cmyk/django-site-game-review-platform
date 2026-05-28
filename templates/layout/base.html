@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Games Review Platform</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}?v=2">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}?v=2">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}?v=2">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}?v=2">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}?v=2">
+    <link rel="stylesheet" href="{% static 'css/games.css' %}?v=2">
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}?v=2">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}?v=2">
+    <link rel="stylesheet" href="{% static 'css/reviews.css' %}?v=2">
+    <link rel="stylesheet" href="{% static 'css/contacts.css' %}?v=2">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
+</head>
+<body>
+
+    {% include "layout/header.html" %}
+
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    {% include "layout/footer.html" %}
+
+</body>
+</html>

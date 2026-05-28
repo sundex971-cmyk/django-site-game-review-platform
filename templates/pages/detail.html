@@ -1,0 +1,145 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+
+<section class="game-detail-container">
+
+    <div class="game-detail-card">
+
+        <div class="game-detail-image">
+
+            {% if game.foto %}
+                <img src="{{ game.foto.url }}" alt="{{ game.name }}">
+            {% endif %}
+
+        </div>
+
+        <div class="game-detail-info">
+
+            <h1>{{ game.name }}</h1>
+
+            <div class="game-meta">
+
+                <span class="genre">
+                    {{ game.genre }}
+                </span>
+
+                <span class="rating">
+                    ⭐ {{ game.rating }}
+                </span>
+
+            </div>
+
+            <div class="release-date">
+                Release Date: {{ game.release_date }}
+            </div>
+
+            <div class="description">
+
+                <h2>Description</h2>
+
+                <p>
+                    {{ game.description }}
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <section class="reviews-section">
+
+        <div class="reviews-header">
+            <div>
+                <p class="reviews-kicker">Community feedback</p>
+                <h2>Player Reviews</h2>
+            </div>
+
+            <div class="reviews-summary">
+                <div>
+                    <span class="summary-value">
+                        {% if average_rating %}
+                            {{ average_rating|floatformat:1 }}
+                        {% else %}
+                            -
+                        {% endif %}
+                    </span>
+                    <span class="summary-label">Avg score</span>
+                </div>
+
+                <div>
+                    <span class="summary-value">{{ reviews|length }}</span>
+                    <span class="summary-label">Reviews</span>
+                </div>
+            </div>
+        </div>
+
+        {% if user.is_authenticated %}
+            <form method="post" class="review-form">
+                {% csrf_token %}
+
+                <div class="review-form-heading">
+                    <h3>Write your review</h3>
+                    <p>Keep it useful for other players: what worked, what did not, and who should play it.</p>
+                </div>
+
+                <div class="review-form-grid">
+                    <div class="review-field review-rating-field">
+                        <label for="{{ form.rating.id_for_label }}">Score</label>
+                        {{ form.rating }}
+                        {{ form.rating.errors }}
+                    </div>
+
+                    <div class="review-field">
+                        <label for="{{ form.text.id_for_label }}">Review</label>
+                        {{ form.text }}
+                        {{ form.text.errors }}
+                    </div>
+                </div>
+
+                <div class="review-form-actions">
+                    <button type="submit">Publish review</button>
+                </div>
+            </form>
+        {% else %}
+            <p class="review-login-message">
+                <a href="{% url 'login' %}">Log in</a> to leave a review.
+            </p>
+        {% endif %}
+
+        <div class="reviews-list">
+            {% for review in reviews %}
+                <article class="review-card">
+                    <div class="review-avatar">
+                        {{ review.user.username|first|upper }}
+                    </div>
+
+                    <div class="review-content">
+                    <div class="review-card-header">
+                        <div>
+                            <strong>{{ review.user.username }}</strong>
+                            <time datetime="{{ review.created_at|date:'c' }}">
+                                {{ review.created_at|date:"M d, Y" }}
+                            </time>
+                        </div>
+
+                        <span>{{ review.rating }}/10</span>
+                    </div>
+
+                    <p>{{ review.text }}</p>
+                    </div>
+                </article>
+            {% empty %}
+                <div class="empty-reviews">
+                    <h3>No reviews yet</h3>
+                    <p>Be the first to share whether this game is worth the time.</p>
+                </div>
+            {% endfor %}
+        </div>
+
+    </section>
+
+</section>
+
+{% endblock %}

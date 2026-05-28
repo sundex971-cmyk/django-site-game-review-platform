@@ -1,0 +1,71 @@
+{% extends "layout/base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="landing">
+  <section class="landing-section left">
+    <div class="video-bg">
+      <video autoplay muted loop playsinline>
+        <source src="{% static 'videos/games.mp4' %}" type="video/mp4">
+      </video>
+    </div>
+    <div class="content">
+        <h1 class="typing">
+            <span>G</span>
+            <span>A</span>
+            <span>M</span>
+            <span>I</span>
+            <span>N</span>
+            <span>G</span>
+        </h1>
+      <div class="buttons"><button class="btn"><a href="{% url 'games' %}">Explore Games</a></button></div>
+    </div>
+  </section>
+
+  <section class="landing-section center">
+    <div class="video-bg">
+      <video autoplay muted loop playsinline>
+        <source src="{% static 'videos/review.mp4' %}" type="video/mp4">
+      </video>
+    </div>
+    <div class="content">
+        <h1 class="typing">
+            <span>R</span>
+            <span>E</span>
+            <span>V</span>
+            <span>I</span>
+            <span>E</span>
+            <span>W</span>
+        </h1>
+      <div class="buttons"><button class="btn"><a href="{% url 'reviews' %}">Read Reviews</a></button></div>
+    </div>
+  </section>
+
+  <section class="landing-section right">
+    <div class="video-bg">
+      <video autoplay muted loop playsinline>
+        <source src="{% static 'videos/platform.mp4' %}" type="video/mp4">
+      </video>
+    </div>
+    <div class="content">
+        <h1 class="typing">
+            <span>P</span>
+            <span>L</span>
+            <span>A</span>
+            <span>T</span>
+            <span>F</span>
+            <span>O</span>
+            <span>R</span>
+            <span>M</span>
+        </h1>
+      <div class="buttons"><button class="btn">
+        {% if user.is_authenticated %}
+          <a href="{% url 'logout' %}">
+        {% else %}
+          <a href="{% url 'login' %}">
+        {% endif %}
+        Join Platform</a></button></div>
+    </div>
+  </section>
+</div>
+{% endblock %}

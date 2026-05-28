@@ -1,0 +1,41 @@
+/* Sticky footer */
+html, body {
+    min-height: 100%;
+    height: auto;
+    margin: 0;
+}
+body {
+    display: flex;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto; /* занимает пространство, вытесняя футер вниз */
+}
+
+.site-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #040405;
+    color: #bbb;
+    padding: 10px 25px;
+    border-top: 1px solid #333;
+    font-size: 14px;
+}
+
+.site-footer a {
+    color: #90caf9; /* акцентный синий */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.site-footer a:hover {
+    color: #bb86fc;
+}
+
+.footer-center ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}

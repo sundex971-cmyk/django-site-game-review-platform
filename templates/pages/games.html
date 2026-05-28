@@ -1,0 +1,78 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+
+<section class="catalog-page">
+
+    <div class="catalog-header">
+
+        <h1>Games Catalog</h1>
+
+        <form class="search-form" method="GET">
+
+            <input
+                type="text"
+                name="search"
+                placeholder="Search games..."
+                value="{{ search_query }}"
+            >
+
+            <select name="genre">
+                <option value="">All Genres</option>
+                <option value="RPG" {% if genre_filter == 'RPG' %}selected{% endif %}>RPG</option>
+                <option value="Action" {% if genre_filter == 'Action' %}selected{% endif %}>Action</option>
+                <option value="FPS" {% if genre_filter == 'FPS' %}selected{% endif %}>Shooter</option>
+                <option value="Strategy" {% if genre_filter == 'Strategy' %}selected{% endif %}>Strategy</option>
+            </select>
+
+            <button type="submit">
+                Search
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="games-grid">
+
+        {% for game in games %}
+
+        <a class="game-card" href="{% url 'game_detail' game.id %}">
+
+            {% if game.foto %}
+                <img
+                    src="{{ game.foto.url }}"
+                    alt="{{ game.name }}"
+                    class="game-image"
+                >
+            {% endif %}
+
+            <div class="game-info">
+
+                <h2>{{ game.name }}</h2>
+
+                <p class="genre">
+                    {{ game.genre }}
+                </p>
+
+                <div class="rating">
+                    ⭐ {{ game.rating }}
+                </div>
+
+            </div>
+
+        </a>
+
+        {% empty %}
+            <div class="games-empty">
+                <h2>No games found</h2>
+                <p>Try another search term or clear the genre filter.</p>
+            </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

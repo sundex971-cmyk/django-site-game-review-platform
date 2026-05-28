@@ -1,0 +1,68 @@
+{% extends "layout/base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="reviews-feed-page">
+
+    <div class="reviews-feed-header">
+        <div>
+            <p class="reviews-feed-kicker">Community activity</p>
+            <h1>Latest Reviews</h1>
+            <p class="reviews-feed-subtitle">
+                Fresh player opinions from across the game catalog.
+            </p>
+        </div>
+
+        <div class="reviews-feed-count">
+            <span>{{ reviews|length }}</span>
+            <p>Total reviews</p>
+        </div>
+    </div>
+
+    <div class="reviews-feed-list">
+        {% for review in reviews %}
+            <article class="feed-review-card">
+                <a class="feed-review-cover" href="{% url 'game_detail' review.game.id %}">
+                    {% if review.game.foto %}
+                        <img src="{{ review.game.foto.url }}" alt="{{ review.game.name }}">
+                    {% else %}
+                        <span>{{ review.game.name|first|upper }}</span>
+                    {% endif %}
+                </a>
+
+                <div class="feed-review-content">
+                    <div class="feed-review-topline">
+                        <a href="{% url 'game_detail' review.game.id %}" class="feed-review-game">
+                            {{ review.game.name }}
+                        </a>
+
+                        <span class="feed-review-score">{{ review.rating }}/10</span>
+                    </div>
+
+                    <p class="feed-review-text">{{ review.text }}</p>
+
+                    <div class="feed-review-meta">
+                        <span class="feed-review-user">
+                            {{ review.user.username|first|upper }}
+                        </span>
+
+                        <div>
+                            <strong>{{ review.user.username }}</strong>
+                            <time datetime="{{ review.created_at|date:'c' }}">
+                                {{ review.created_at|date:"M d, Y H:i" }}
+                            </time>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        {% empty %}
+            <div class="reviews-feed-empty">
+                <h2>No reviews yet</h2>
+                <p>Once players publish reviews on game pages, they will appear here.</p>
+                <a href="{% url 'games' %}">Browse games</a>
+            </div>
+        {% endfor %}
+    </div>
+
+</section>
+{% endblock %}

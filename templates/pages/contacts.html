@@ -1,0 +1,93 @@
+{% extends "layout/base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="contacts-page">
+
+    <div class="contacts-hero">
+        <div>
+            <p class="contacts-kicker">Get in touch</p>
+            <h1>Contacts</h1>
+            <p class="contacts-subtitle">
+                Have an idea for the platform, found a bug, or want to suggest a game for the catalog?
+                Send a message and we will take a look.
+            </p>
+        </div>
+
+        <div class="contacts-status">
+            <span>Response time</span>
+            <strong>24-48h</strong>
+        </div>
+    </div>
+
+    <div class="contacts-layout">
+
+        <div class="contact-cards">
+            <article class="contact-card">
+                <span class="contact-icon">?</span>
+                <div>
+                    <h2>Support</h2>
+                    <p>Questions about accounts, reviews, or broken pages.</p>
+                    <a href="mailto:support@gamesreview.local">support@gamesreview.local</a>
+                </div>
+            </article>
+
+            <article class="contact-card">
+                <span class="contact-icon">+</span>
+                <div>
+                    <h2>Game Suggestions</h2>
+                    <p>Tell us what should be added to the catalog next.</p>
+                    <a href="{% url 'games' %}">Browse catalog</a>
+                </div>
+            </article>
+
+            <article class="contact-card">
+                <span class="contact-icon">!</span>
+                <div>
+                    <h2>Reports</h2>
+                    <p>Report spam, incorrect game data, or review issues.</p>
+                    <a href="mailto:reports@gamesreview.local">reports@gamesreview.local</a>
+                </div>
+            </article>
+        </div>
+
+        <form class="contact-form" method="post">
+            {% csrf_token %}
+
+            <div class="contact-form-heading">
+                <h2>Send a Message</h2>
+                <p>This demo form is ready for layout and can be connected to email or database storage later.</p>
+            </div>
+
+            <div class="contact-field">
+                <label for="name">Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name">
+            </div>
+
+            <div class="contact-field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com">
+            </div>
+
+            <div class="contact-field">
+                <label for="topic">Topic</label>
+                <select id="topic" name="topic">
+                    <option>General question</option>
+                    <option>Bug report</option>
+                    <option>Game suggestion</option>
+                    <option>Review moderation</option>
+                </select>
+            </div>
+
+            <div class="contact-field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="6" placeholder="Write your message..."></textarea>
+            </div>
+
+            <button type="submit">Send message</button>
+        </form>
+
+    </div>
+
+</section>
+{% endblock %}

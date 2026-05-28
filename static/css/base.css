@@ -1,0 +1,33 @@
+/* Общая тёмная тема */
+html, body {
+    min-height: 100%;          /* растягиваем минимум на всю высоту окна */
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;             /* делаем флекс-контейнер */
+    flex-direction: column;    /* вертикальная колонка */
+    min-height: 100vh;         /* минимум — вся высота окна */
+    background-color: #121212; /* тёмный фон */
+    color: #e0e0e0;            /* светлый текст */
+    font-family: 'Inter', sans-serif;
+    position: relative;
+}
+
+/* Ссылки */
+a {
+    color: #90caf9;
+    text-decoration: none;
+}
+a:hover {
+    color: #bb86fc;
+}
+
+/* Основной контент */
+main {
+    flex: 1 0 auto;            /* занимает пространство между header и footer и растет вместе с контентом */
+    display: block;
+    overflow: visible;
+}

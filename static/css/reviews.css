@@ -1,0 +1,237 @@
+.reviews-feed-page {
+    min-height: 100vh;
+    padding: 50px;
+    background-color: #0f0f0f;
+    color: white;
+}
+
+.reviews-feed-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 28px;
+    margin-bottom: 34px;
+}
+
+.reviews-feed-kicker {
+    margin: 0 0 10px;
+    color: #9ad7ff;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.reviews-feed-header h1 {
+    margin: 0;
+    font-size: 46px;
+    line-height: 1.05;
+}
+
+.reviews-feed-subtitle {
+    margin: 14px 0 0;
+    max-width: 560px;
+    color: #b7b7b7;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.reviews-feed-count {
+    min-width: 150px;
+    padding: 18px 20px;
+    border: 1px solid #2f2f2f;
+    border-radius: 16px;
+    background-color: #171717;
+    text-align: right;
+}
+
+.reviews-feed-count span {
+    display: block;
+    color: #ffffff;
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.reviews-feed-count p {
+    margin: 8px 0 0;
+    color: #9a9a9a;
+    font-size: 13px;
+}
+
+.reviews-feed-list {
+    display: grid;
+    gap: 18px;
+}
+
+.feed-review-card {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 22px;
+    padding: 18px;
+    border: 1px solid #2b2b2b;
+    border-radius: 18px;
+    background-color: #171717;
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+    transition: border-color 0.2s, transform 0.2s;
+}
+
+.feed-review-card:hover {
+    border-color: #3c3c3c;
+    transform: translateY(-2px);
+}
+
+.feed-review-cover {
+    min-height: 190px;
+    border-radius: 14px;
+    overflow: hidden;
+    background-color: #101010;
+    color: #9ad7ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    font-weight: 800;
+}
+
+.feed-review-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.feed-review-content {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.feed-review-topline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.feed-review-game {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.feed-review-game:hover {
+    color: #9ad7ff;
+}
+
+.feed-review-score {
+    flex: 0 0 auto;
+    padding: 8px 12px;
+    border: 1px solid rgba(154, 215, 255, 0.35);
+    border-radius: 999px;
+    background-color: rgba(154, 215, 255, 0.1);
+    color: #9ad7ff;
+    font-weight: 800;
+}
+
+.feed-review-text {
+    margin: 0;
+    color: #d0d0d0;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.feed-review-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid #2a2a2a;
+}
+
+.feed-review-user {
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #9ad7ff;
+    color: #061017;
+    font-weight: 800;
+}
+
+.feed-review-meta strong,
+.feed-review-meta time {
+    display: block;
+}
+
+.feed-review-meta strong {
+    color: #ffffff;
+}
+
+.feed-review-meta time {
+    margin-top: 3px;
+    color: #858585;
+    font-size: 13px;
+}
+
+.reviews-feed-empty {
+    padding: 46px 28px;
+    border: 1px dashed #3a3a3a;
+    border-radius: 18px;
+    background-color: #171717;
+    text-align: center;
+}
+
+.reviews-feed-empty h2 {
+    margin: 0 0 10px;
+    color: #ffffff;
+    font-size: 30px;
+}
+
+.reviews-feed-empty p {
+    margin: 0 auto 20px;
+    max-width: 460px;
+    color: #a7a7a7;
+    line-height: 1.6;
+}
+
+.reviews-feed-empty a {
+    display: inline-block;
+    padding: 12px 18px;
+    border-radius: 10px;
+    background-color: #9ad7ff;
+    color: #061017;
+    font-weight: 700;
+}
+
+@media (max-width: 780px) {
+    .reviews-feed-page {
+        padding: 34px 20px;
+    }
+
+    .reviews-feed-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .reviews-feed-count {
+        text-align: left;
+    }
+
+    .feed-review-card {
+        grid-template-columns: 1fr;
+    }
+
+    .feed-review-cover {
+        aspect-ratio: 16 / 9;
+        min-height: 0;
+    }
+
+    .feed-review-topline {
+        flex-direction: column;
+    }
+}

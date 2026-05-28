@@ -1,0 +1,128 @@
+.catalog-page,
+main {
+    overflow: visible;
+}
+
+main {
+    display: block;
+    flex: 1 0 auto;
+}
+
+.catalog-page {
+    padding: 40px;
+    min-height: 100vh;
+    background-color: #0f0f0f;
+    color: white;
+}
+
+.catalog-header {
+    margin-bottom: 40px;
+}
+
+.catalog-header h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.search-form {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.search-form input,
+.search-form select {
+    padding: 12px 16px;
+    background-color: #1b1b1b;
+    border: 1px solid #333;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+}
+
+.search-form input {
+    width: 300px;
+}
+
+.search-form button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #7c3aed;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.search-form button:hover {
+    background-color: #6d28d9;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+.game-card {
+    display: block;
+    background-color: #1a1a1a;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: 0.3s;
+    border: 1px solid #2a2a2a;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.3);
+}
+
+.game-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.game-info {
+    padding: 20px;
+}
+
+.game-info h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.genre {
+    color: #aaa;
+    margin-bottom: 15px;
+}
+
+.rating {
+    color: #7c3aed;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.games-empty {
+    grid-column: 1 / -1;
+    padding: 42px 28px;
+    border: 1px dashed #3a3a3a;
+    border-radius: 16px;
+    background-color: #171717;
+    text-align: center;
+}
+
+.games-empty h2 {
+    margin: 0 0 10px;
+    color: #ffffff;
+    font-size: 28px;
+}
+
+.games-empty p {
+    margin: 0;
+    color: #a7a7a7;
+}
